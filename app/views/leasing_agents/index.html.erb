@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<p align="right" class="navbar-text pull-left">
+  <% if leasing_agent_signed_in? %>
+    Logged in as <strong> <%= current_leasing_agent.email %></strong>.
+    <%= link_to "Sign out", destroy_leasing_agent_session_path, method: :get, :class => 'navbar-link'  %>
+    <%= link_to 'Edit profile', edit_leasing_agent_registration_path,  :class => 'navbar-link' %>
+  <%end %>
+</p>
+<% if leasing_agent_signed_in? %>
+<h1><%= current_leasing_agent.name %>'s Leasing Agents Dashboard</h1>
+  <%= link_to 'Click here to View and Add Properties', getproperties_path %>
+<%end %>
+
+<% if leasing_agent_signed_in? %>
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+  </table>
+<%end %>
+
+<br>
+
+<%#= link_to 'View Properties', getproperties_path %>
+
+<%#= link_to 'New Leasing Agent', new_leasing_agent_path %>

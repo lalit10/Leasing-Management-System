@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Applicants:</strong>
+  <%= @waitlist.applicants %>
+</p>
+
+<p>
+  <strong>Date time:</strong>
+  <%= @waitlist.date_time %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @waitlist.property %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @waitlist.status %>
+</p>
+
+<%= link_to 'Edit', edit_waitlist_path(@waitlist) %> |
+<%= link_to 'Back', waitlists_path %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Properties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Size</th>
+      <th>Features pets</th>
+      <th>Features laundry</th>
+      <th>Features parking</th>
+      <th>Terms available</th>
+      <th>Earliest start time</th>
+      <th>Application fee</th>
+      <th>Monthly rent</th>
+      <th>Occupied by</th>
+      <th>Availability</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.size %></td>
+        <td><%= property.features_pets %></td>
+        <td><%= property.features_laundry %></td>
+        <td><%= property.features_parking %></td>
+        <td><%= property.terms_available %></td>
+        <td><%= property.earliest_start_time %></td>
+        <td><%= property.application_fee %></td>
+        <td><%= property.monthly_rent %></td>
+        <td><%= property.occupied_by %></td>
+        <td><%= property.availability %></td>
+        <td><%= link_to 'Show', property %></td>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path %>
+<% if admin_signed_in? %>
+  <%= link_to 'Back', admins_path %>
+  <% else %>
+<%= link_to 'Back', :back %>
+<% end %>

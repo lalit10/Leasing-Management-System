@@ -1,0 +1,9 @@
+<h1>New Property</h1>
+
+<%= render 'form', property: @property %>
+
+<% if leasing_agent_signed_in? %>
+  <%= link_to 'Back', getproperties_path %>
+<% else %>
+<%= link_to 'Back', properties_path %>
+<%end %>

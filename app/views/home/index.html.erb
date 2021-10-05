@@ -1,0 +1,37 @@
+<p id=”notice”><%= notice %></p>
+<h1>Leasing Management System</h1>
+<p>A property management tool</p>
+<p class="navbar-text pull-right">
+  <% if applicant_signed_in? %>
+    Logged in as <strong> <%= current_applicant.email %></strong>.
+    <%= link_to "Logout", destroy_applicant_session_path, method: :delete, :class => 'navbar-link'  %>
+  <%end %>
+</p>
+<p class="navbar-text pull-right">
+  <% if admin_signed_in? %>
+    Logged in as <strong> <%= current_admin.email %></strong>.
+    <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link'  %>
+  <%end %>
+</p>
+<h2 align="center">Please select a user category</h2>
+
+
+<% if admin_signed_in? %>
+  <h3 align="center"><%= link_to 'Admin', admins_path %></h3>
+<% else %>
+  <h3 align="center"><%= link_to 'Admin', new_admin_session_path %></h3>
+<%end %>
+
+<% if applicant_signed_in? %>
+  <h3 align="center"><%= link_to 'Applicant', applicant_path %></h3>
+<% else %>
+  <h3 align="center"><%= link_to 'Applicant', new_applicant_session_path %></h3>
+<% end %>
+
+<% if leasing_agent_signed_in? %>
+  <h3 align="center"><%= link_to 'Leasing Agent', leasing_agent_path %></h3>
+<% else %>
+  <h3 align="center"><%= link_to 'Leasing Agent', new_leasing_agent_session_path %></h3>
+<% end %>
+
+

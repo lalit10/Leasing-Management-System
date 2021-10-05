@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @applicant.name %>
+</p>
+
+<p>
+  <strong>Date time:</strong>
+  <%= @application.date_time %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= Property.find(@application.property_id).name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @application.status %>
+</p>
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+
+<% if leasing_agent_signed_in? %>
+  <%= link_to 'Back', property_path %>
+<% else %>
+  <%= link_to 'Back', applicants_path %>
+<%end %>
+

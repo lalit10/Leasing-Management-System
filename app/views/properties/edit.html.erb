@@ -1,0 +1,11 @@
+<h1>Editing Property</h1>
+
+<%= render 'form', property: @property %>
+
+<%= link_to 'Show', @property %> |
+<% if admin_signed_in? %>
+  <%= link_to 'Back', show_properties_path %>
+<% else %>
+  <%= link_to 'Back', properties_path %>
+<% end %>
+

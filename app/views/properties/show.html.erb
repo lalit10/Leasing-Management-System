@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @property.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @property.size %>
+</p>
+
+<p>
+  <strong>Features pets:</strong>
+  <%= @property.features_pets %>
+</p>
+
+<p>
+  <strong>Features laundry:</strong>
+  <%= @property.features_laundry %>
+</p>
+
+<p>
+  <strong>Features parking:</strong>
+  <%= @property.features_parking %>
+</p>
+
+<p>
+  <strong>Terms available:</strong>
+  <%= @property.terms_available %>
+</p>
+
+<p>
+  <strong>Earliest start time:</strong>
+  <%= @property.earliest_start_time %>
+</p>
+
+<p>
+  <strong>Application fee:</strong>
+  <%= @property.application_fee %>
+</p>
+
+<p>
+  <strong>Monthly rent:</strong>
+  <%= @property.monthly_rent %>
+</p>
+
+<p>
+  <strong>Occupied by:</strong>
+  <%= @property.occupied_by %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @property.availability %>
+</p>
+<br>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<% if admin_signed_in? %>
+  <%= link_to 'Back', :back %>
+<%else %>
+  <%= link_to 'Back', getproperties_path%>
+
+<% if leasing_agent_signed_in? %>
+<h1> Applications for this Property</h1>
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Applicant Name</th>
+    <th>Date time</th>
+    <th>Property</th>
+    <th>Status</th>
+    </div>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @applications.each do |application| %>
+    <tr>
+      <td><%= Applicant.find(application.applicant_id).name %></td>
+      <td><%= application.date_time %></td>
+      <td><%= Property.find(application.property_id).name %></td>
+      <td><%= application.status %></td>
+      <td><%= link_to 'CheckIn',checkin_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+      <td><%= link_to 'CheckOut',checkout_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+      <td><%= link_to 'Reject',reject_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<br>
+
+<%end %>

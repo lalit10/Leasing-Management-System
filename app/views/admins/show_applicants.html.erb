@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email address</th>
+    <th>Phone number</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @applicants.each do |applicant| %>
+    <tr>
+      <td><%= applicant.name %></td>
+      <td><%= applicant.email %></td>
+      <td><%= applicant.phone_number %></td>
+      <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+      <td><%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', admins_path %>

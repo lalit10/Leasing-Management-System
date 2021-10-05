@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  size: MyString
+  features_pets: false
+  features_laundry: false
+  features_parking: false
+  terms_available: MyString
+  earliest_start_time: 2021-09-20 14:28:12
+  application_fee: 1
+  monthly_rent: 1
+  occupied_by: MyString
+
+two:
+  name: MyString
+  address: MyString
+  size: MyString
+  features_pets: false
+  features_laundry: false
+  features_parking: false
+  terms_available: MyString
+  earliest_start_time: 2021-09-20 14:28:12
+  application_fee: 1
+  monthly_rent: 1
+  occupied_by: MyString

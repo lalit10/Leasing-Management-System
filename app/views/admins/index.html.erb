@@ -1,0 +1,47 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+
+<p align="right" class="navbar-text pull-left">
+<p align="right" class="navbar-text pull-left">
+  <% if admin_signed_in? %>
+    <%= link_to "Sign out", destroy_admin_session_path, method: :get, :class => 'navbar-link'  %>
+  <%end %>
+</p>
+
+<h1>Admin Panel</h1>
+Name: <%= current_admin.name %><br>
+Email: <%=  current_admin.email %><br>
+<br>
+<br>
+</p>
+<h1>Admin's Dashboard</h1>
+<table>
+  <th><strong>Admin Rights</strong></th>
+
+  <tr><td><%= link_to 'Edit Profile', edit_admin_path(current_admin) %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Leasing Agent</strong></td><tr>
+  <tr><td><%= link_to 'Add Leasing Agent', new_leasing_agent_path %></td></tr>
+  <tr><td><%= link_to 'View Leasing Agents (Details/Edit/Delete)', show_leasing_agents_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Applications</strong></td><tr>
+  <tr><td><%= link_to 'Add Applications', add_applications_path %></tr>
+  <tr><td><%= link_to 'View Applications (Details/Edit/Delete)', show_applications_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Applicants</strong></td><tr>
+  <tr><td><%= link_to 'Add Applicant', new_applicant_path %></td></tr>
+  <tr><td><%= link_to 'View Applicant (Details/Edit/Delete)', show_applicants_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td>
+  <tr><td><strong>Properties</strong></td><tr>
+  <tr><td><%= link_to 'Add Properties', add_properties_path %></td></tr>
+  <tr><td><%= link_to 'View Properties (Details/Edit/Delete)', show_properties_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+</table>
+<br>
+
+

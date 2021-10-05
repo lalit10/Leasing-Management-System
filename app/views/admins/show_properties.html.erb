@@ -1,0 +1,77 @@
+
+<h1>Properties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Size</th>
+      <th>Features: Laundry</th>
+      <th>Features: Parking</th>
+      <th>Features: Pets</th>
+      <th>Terms available</th>
+      <th>Earliest Start Date</th>
+      <th>Monthly Rent</th>
+      <th>Application fee</th>
+      <th>Occupied By</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.size %></td>
+        <td><%= property.features_laundry %></td>
+        <td><%= property.features_parking %>
+        <td><%= property.features_pets %></td>
+        <td><%= property.terms_available %></td>
+        <td><%= property.earliest_start_time %></td>
+        <td><%= property.monthly_rent %></td>
+        <td><%= property.application_fee %></td>
+        <td><%= property.occupied_by %></td>
+		    <td><%= link_to 'Show', property %></td>
+		    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+		    <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if admin_signed_in? %>
+  <h1> Applications for all Properties</h1>
+  <br>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Applicant Name</th>
+      <th>Date time</th>
+      <th>Property</th>
+      <th>Status</th>
+      </div>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= Applicant.find(application.applicant_id).name %></td>
+        <td><%= application.date_time %></td>
+        <td><%= Property.find(application.property_id).name %></td>
+        <td><%= application.status %></td>
+        <td><%= link_to 'CheckIn',checkin_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+        <td><%= link_to 'CheckOut',checkout_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+        <td><%= link_to 'Reject',reject_path(:id=>application.id,:applicant_id=>application.applicant_id,:property_id=>application.property_id) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+
+<%= link_to 'Back', admins_path %>

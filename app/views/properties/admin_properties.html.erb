@@ -1,0 +1,74 @@
+<%= form_with(model: Property) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :features_pets %>
+    <%= form.check_box :features_pets %>
+  </div>
+
+  <div class="field">
+    <%= form.label :features_laundry %>
+    <%= form.check_box :features_laundry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :features_parking %>
+    <%= form.check_box :features_parking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :terms_available %>
+    <%= form.text_field :terms_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :earliest_start_time %>
+    <%= form.datetime_select :earliest_start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_fee %>
+    <%= form.number_field :application_fee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_rent %>
+    <%= form.number_field :monthly_rent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupied_by %>
+    <%= form.text_field :occupied_by %>
+  </div>
+  <div class="field">
+    <%= form.label :leasing_agent_id %>
+    <% leasing_agent_array = LeasingAgent.all.map { |leasingagent| [leasingagent.name, leasingagent.id] } %>
+    <%= form.select(:leasing_agent_id, options_for_select(leasing_agent_array)) %>
+  </div>
+  <div class="field">
+    <%= form.label :availability %>
+    <%= form.check_box :availability %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Create" %>
+  </div>
+
+
+
+<% end %>
+<%= link_to 'Back', :back %>

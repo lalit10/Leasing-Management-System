@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicants: MyString
+  date_time: 2021-09-20 14:30:36
+  property: MyString
+  status: MyString
+
+two:
+  applicants: MyString
+  date_time: 2021-09-20 14:30:36
+  property: MyString
+  status: MyString
