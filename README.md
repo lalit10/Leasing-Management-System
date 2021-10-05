@@ -5,7 +5,7 @@ FACULTY: Dr. Edward F. Gehringer
 
 MENTOR: Tirth Patel
 
-**TEAM ANDROMEDA**: Lalit Bangad(llbangad),Subodh Thota(sthota), Kanchan Rawat (kprawat)
+**TEAM ANDROMEDA**: Lalit Bangad(llbangad), Subodh Thota(sthota), Kanchan Rawat (kprawat)
 
 RUBY VERSION: 3.0.2
 RAILS 6.1.4
